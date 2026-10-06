@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { prisma } from "@/lib/prisma";
 import { FolderKanban, Calendar, Euro } from "lucide-react";
 import { CreateProjectDialog } from "@/components/clients/CreateProjectDialog";

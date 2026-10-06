@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { DollarSign, FolderKanban, Users, Clock, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/dashboard/StatCard";

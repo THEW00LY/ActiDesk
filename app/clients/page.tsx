@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { prisma } from "@/lib/prisma";
 import { Users, Mail, Building2 } from "lucide-react";
 import { CreateClientDialog } from "@/components/clients/CreateClientDialog";
