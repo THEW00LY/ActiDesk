@@ -11,6 +11,8 @@ jobs:
         name: Lint, Typecheck & Build
         runs-on: ubuntu-latest
 
+        env:
+          DATABASE_URL: "postgresql://mock_user:mock_pass@localhost:5432/mock_db?schema=public"
         steps:
           - name: Checkout repository
             uses: actions/checkout@v4
@@ -38,5 +40,4 @@ jobs:
 
           - name: Build Next.js application
             run: npm run build
-            env:
-                DATABASE_URL: "postgresql://mock_user:mock_pass@localhost:5432/mock_db?schema=public"
+            
