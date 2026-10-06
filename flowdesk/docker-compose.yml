@@ -1,15 +1,16 @@
 services:
   postgres:
-    image: postgres:16
-    container_name: actidesk-postgre
+    image: postgres:16-alpine
+    container_name: actidesk-db
     restart: always
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mon_app
+      POSTGRES_USER: actidesk_user
+      POSTGRES_PASSWORD: actidesk_password
+      POSTGRES_DB: actidesk_db
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
 volumes:
   postgres_data:
