@@ -45,7 +45,7 @@ function isWorkingDay(date: Date): boolean {
 export function calculateWeeklyWorkload (
     projects: WorkloadProject[], config: CapacityConfig
 ) : WorkloadAnalysis {
-    let bucketMap = new Map<string, MondayTracker>();
+    const bucketMap = new Map<string, MondayTracker>();
 
     
     if (projects.length === 0) {
@@ -56,13 +56,8 @@ export function calculateWeeklyWorkload (
         const start = new Date(project.startDate);
         const end = new Date(project.endDate);
         
-        const durationDays = Math.max(
-            1,
-            Math.ceil( (end.getTime() - start.getTime()) / (1000*60*60*24)) + 1
-        );
-        
         let workingDaysCount = 0;
-        let counter = new Date(start);
+        const counter = new Date(start);
         while (counter <= end) {
         if (isWorkingDay(counter)) {
             workingDaysCount++;
@@ -73,7 +68,7 @@ export function calculateWeeklyWorkload (
 
         const dailyHours = project.estimatedHours / workingDaysCount;
         
-        let current = new Date(start);
+        const current = new Date(start);
         while (current <= end) {
             if (isWorkingDay(current)) {
                 const weekStart = getStartOfWeek(current);
@@ -99,7 +94,7 @@ export function calculateWeeklyWorkload (
             current.setDate(current.getDate() + 1);
         }
     }
-    
+
     const sortedKeys = Array.from(bucketMap.keys()).sort();
     
     let maxOverloadRatio = 0;
