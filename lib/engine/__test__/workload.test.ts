@@ -7,7 +7,7 @@ import {
 
 describe("Workload & Capacity Engine", () => {
     const defaultConfig: CapacityConfig = {
-        WeeklyCapacityHours: 35,
+        weeklyCapacityHours: 35,
     };
 
     it("doit retourner un résultat vide si aucun projet n'est fourni", () => {
